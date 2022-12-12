@@ -1,0 +1,4 @@
+[gopro]
+directory = <SOURCE DIRECTORY>
+target_directory = <TARGET DIRECTORY>
+processed_directory = <PROCESSED DIRECTORY>
