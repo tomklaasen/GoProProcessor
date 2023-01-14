@@ -2,3 +2,4 @@
 directory = <SOURCE DIRECTORY>
 target_directory = <TARGET DIRECTORY>
 processed_directory = <PROCESSED DIRECTORY>
+gopro_highlight_parser_directory = <GOPRO HIGLIGHT PARSER DIRECTORY>

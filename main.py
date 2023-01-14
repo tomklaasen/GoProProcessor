@@ -39,11 +39,13 @@ def read_config():
 	global directory 
 	global target_directory
 	global processed_directory
+	global gopro_highlight_parser_directory
 	config = configparser.ConfigParser()
 	config.read("config.ini")
 	directory = config.get("gopro", "directory")
 	target_directory = config.get("gopro", "target_directory")
 	processed_directory = config.get("gopro", "processed_directory")
+	gopro_highlight_parser_directory = config.get("gopro", "gopro_highlight_parser_directory")
 
 
 def initiate():
@@ -65,7 +67,8 @@ def createIndexFiles():
 	files = glob.glob(os.path.join(directory, "*.MP4"))
 	for f in files:
 		logging.debug(f"Processing {f} file...")
-		os.system(f"python3 /Users/tomklaasen/Workspace/GoPro-Highlight-Parser/GP\ Highlight\ Extractor.py {f}")
+		script = os.path.join(gopro_highlight_parser_directory, 'GP\ Highlight\ Extractor.py')
+		os.system(f"python3 {script} {f}")
 
 
 def do_it():
