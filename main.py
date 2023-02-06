@@ -28,6 +28,10 @@ def handle(videofile, index, timestamp):
 		command = f"ffmpeg {arguments} -i {videofile} {flags} {output_filename}"
 		logging.debug("    Command: " + command)
 		os.system(command)
+		time_of_event = datetime.fromtimestamp(os.path.getmtime(videofile)) + timedelta(hours=time_object.hour, minutes=time_object.minute, seconds=time_object.second)
+		logging.debug("    time_of_event: " + time_of_event.strftime('%Y-%m-%d %H:%M:%S'))
+		utime = time.mktime(time_of_event.timetuple())
+		os.utime(output_filename, (utime, utime))
 
 def createDirectory(path):
 	isExist = os.path.exists(path)
