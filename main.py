@@ -74,6 +74,12 @@ def createIndexFiles():
 		script = os.path.join(gopro_highlight_parser_directory, 'GP\ Highlight\ Extractor.py')
 		os.system(f"python3 {script} {f}")
 
+def cleanup(directory)
+	thm = os.path.join(directory, "*.THM")
+	lrv = os.path.join(directory, "*.LRV")
+	os.system(f"rm {thm}")
+	os.system(f"rm {lrv}")
+
 
 def do_it():
 	initiate()
@@ -94,5 +100,7 @@ def do_it():
 					handle(videofile, index, timestamp)
 		move_to_processed(filename)
 		move_to_processed(videofile)
+
+	cleanup(directory)
 
 do_it()
