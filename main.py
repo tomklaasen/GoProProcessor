@@ -74,7 +74,7 @@ def createIndexFiles():
 		script = os.path.join(gopro_highlight_parser_directory, 'GP\ Highlight\ Extractor.py')
 		os.system(f"python3 {script} {f}")
 
-def cleanup(directory)
+def cleanup(directory):
 	thm = os.path.join(directory, "*.THM")
 	lrv = os.path.join(directory, "*.LRV")
 	os.system(f"rm {thm}")
